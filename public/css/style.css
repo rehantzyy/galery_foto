@@ -345,7 +345,7 @@ ol {
 
 .header-section {
 	position: fixed;
-	width: 455px;
+	width: 255px;
 	height: 100%;
 	left: 0;
 	top: 0;
@@ -1274,7 +1274,7 @@ ol {
 		width: 300px;
 	}
 	.main-warp {
-		padding-left: 300px;
+		padding-left: 100px;
 	}
 	.about-image {
 		margin-bottom: 100px;

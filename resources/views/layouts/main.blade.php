@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-	<title>Photo Gallery HTML Template</title>
+	<title>Project galery</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="Photo Gallery HTML Template">
 	<meta name="keywords" content="endGam,gGaming, magazine, html">
@@ -58,62 +58,28 @@
 				</a>
 				<img src="img/menu-icon.png" alt="" class="menu-icon">
 				<ul class="main-menu">
-					<li class="active"><a href="./home.html">Home</a></li>
-					<li><a href="./gallery.html">Gallery</a></li>
-					<li><a href="./gallery-single.html">Single gallery</a></li>
-					<li><a href="./blog.html">Blog</a></li>
-					<li><a href="./contact.html">Contact</a></li>
+                    <li class="{{ request()->is('profil') ? 'active' : '' }}"><a href="{{route('profil')}}">profil</a></li>
+					<li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="{{route('beranda')}}">home</a></li>
+					<li class="{{ request()->is('galery') ? 'active' : '' }}" ><a href="{{route('galery')}}">gallery</a></li>
+                    <li class="{{ request()->is('album') ? 'active' : '' }}"><a href="{{route('album')}}">album</a></li>
+					<li><a href="{{route('login')}}">login</a></li>
 				</ul>
-				<div class="social-links-warp">
-					<div class="social-links">
-						<a href=""><i class="fa fa-behance"></i></a>
-						<a href=""><i class="fa fa-dribbble"></i></a>
-						<a href=""><i class="fa fa-twitter"></i></a>
-						<a href=""><i class="fa fa-facebook"></i></a>
-						<a href=""><i class="fa fa-pinterest"></i></a>
-					</div>
-					<div class="social-text">Find us on</div>
-				</div>
+
 			</div>
-			<div class="copyright">Colorlib 2018  @ All rights reserved</div>
+			<div class="copyright">Reyyyzzz</div>
 		</header>
 		<!-- header section end -->
 
-		<!-- Page section -->
-		<div class="page-section home-page">
-			<div class="hero-slider owl-carousel">
-				<div class="slider-item d-flex align-items-center set-bg" data-setbg="img/slider-bg-1.jpg" data-hash="slide-1">
-					<div class="si-text-box">
-						<span>Photography</span>
-						<h2>Project No. 1</h2>
-						<p>Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris auctor nunc non nulla euismod consequat. Pellentesque non mattis nulla. Fusce quis tempor risus, non elemen tum dui. Curabitur et mattis ex, a ultrices.</p>
-						<a href="" class="site-btn">Read More</a>
-					</div>
-					<div class="next-slide-show set-bg" data-setbg="img/slider-bg-2.jpg">
-						<a href="#slide-2" class="ns-btn">Next</a>
-					</div>
-				</div>
-				<div class="slider-item d-flex align-items-center set-bg" data-setbg="img/slider-bg-2.jpg"  data-hash="slide-2">
-					<div class="si-text-box">
-						<span>Photography</span>
-						<h2>Project No. 2</h2>
-						<p>Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris auctor nunc non nulla euismod consequat. Pellentesque non mattis nulla. Fusce quis tempor risus, non elemen tum dui. Curabitur et mattis ex, a ultrices.</p>
-						<a href="" class="site-btn">Read More</a>
-					</div>
-					<div class="next-slide-show set-bg" data-setbg="img/slider-bg-1.jpg">
-						<a href="#slide-1" class="ns-btn">Next</a>
-					</div>
-				</div>
-			</div>
-			<div id="snh-1"></div>
-		</div>
-		<!-- Page section end-->
+		<div class="content">
+            @yield('content')
+        </div>
 	</div>
 
 	<!-- Search model -->
+
 	<div class="search-model">
 		<div class="h-100 d-flex align-items-center justify-content-center">
-			<div class="search-close-switch">x</div>
+			<div class="search-close-switch"></div>
 			<form class="search-moderl-form">
 				<input type="text" id="search-input" placeholder="Search here.....">
 			</form>

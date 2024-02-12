@@ -9,7 +9,7 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-        return "<h1>halo gays</h1>";
+        return view('beranda');
     }
 
     public function show()
@@ -17,8 +17,44 @@ class WelcomeController extends Controller
         return view('dashboard');
     }
 
-    public function show_siswa()
+    public function beranda()
     {
-        return view('siswa');
+        return view('beranda');
+    }
+    public function galery()
+    {
+        return view('galery');
+    }
+    public function home()
+    {
+        return view('home');
+    }
+    public function singlegalery()
+    {
+        return view('singlegalery');
+    }
+    public function login()
+    {
+        return view('login');
+    }
+    public function register()
+    {
+        return view('register');
+    }
+    public function postingan()
+    {
+        return view('postingan');
+    }
+    public function profil()
+    {
+        return view('profil');
+    }
+    public function tambahpostingan()
+    {
+        return view('tambahpostingan');
+    }
+    public function album()
+    {
+        return view('album');
     }
 }
