@@ -58,11 +58,17 @@
 				</a>
 				<img src="img/menu-icon.png" alt="" class="menu-icon">
 				<ul class="main-menu">
-                    <li class="{{ request()->is('profil') ? 'active' : '' }}"><a href="{{route('profil')}}">profil</a></li>
-					<li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="{{route('beranda')}}">home</a></li>
+                    <li class="{{ request()->is('beranda') ? 'active' : '' }}"><a href="{{route('beranda')}}">home</a></li>
 					<li class="{{ request()->is('galery') ? 'active' : '' }}" ><a href="{{route('galery')}}">gallery</a></li>
+                    @auth
+                    <li class="{{ request()->is('profil') ? 'active' : '' }}"><a href="{{route('profil')}}">profil</a></li>
                     <li class="{{ request()->is('album') ? 'active' : '' }}"><a href="{{route('album')}}">album</a></li>
-					<li><a href="{{route('login')}}">login</a></li>
+                    <li><a href="{{route('logout')}}">logout</a></li>
+                    @else
+                    <li><a href="{{route('login')}}">login</a></li>
+                    @endauth
+
+
 				</ul>
 
 			</div>

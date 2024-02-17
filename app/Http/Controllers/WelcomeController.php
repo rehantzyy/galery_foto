@@ -33,14 +33,7 @@ class WelcomeController extends Controller
     {
         return view('singlegalery');
     }
-    public function login()
-    {
-        return view('login');
-    }
-    public function register()
-    {
-        return view('register');
-    }
+   
     public function postingan()
     {
         return view('postingan');
