@@ -53,7 +53,8 @@ public function photos()
     // user memiliki banyak photo
     return $this->hasMany(photo::class, 'user_id');
 }
+// user memiliki banyak albums
 public function albums(){
-    return $this->hasmany(albums::class, 'user_id');
+    return $this->hasMany(albums::class, 'user_id');
 }
 }

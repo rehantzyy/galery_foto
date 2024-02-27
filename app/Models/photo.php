@@ -24,7 +24,7 @@ class photo extends Model
      */
     public function album(){
         // photo mengambil id album
-        return $this->belongsTo(albums::class);
+        return $this->belongsTo(albums::class,'album_id');
     }
     public function user()
     {
