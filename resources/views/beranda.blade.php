@@ -3,30 +3,25 @@
 <!-- Page section -->
 <div class="page-section home-page">
     <div class="hero-slider owl-carousel">
-        <div class="slider-item d-flex align-items-center set-bg" data-setbg="{{asset('img/slider-bg-1.jpg')}}" data-hash="slide-1">
+        @forelse ($foto as $item )
+        <div class="slider-item d-flex align-items-center set-bg" data-setbg="{{ asset('storage/'.$item->lokasi_file) }}" data-hash="slide-1">
             <div class="si-text-box">
-                <span>Photography</span>
-                <h2>Project No. 1</h2>
-                <p>Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris auctor nunc non nulla euismod consequat. Pellentesque non mattis nulla. Fusce quis tempor risus, non elemen tum dui. Curabitur et mattis ex, a ultrices.</p>
+                <span>{{ $item->user->name }}</span>
+                <h2>{{ $item->judul_foto }}</h2>
+                <p>{{ $item->deskripsi }}</p>
                 <a href="" class="site-btn">Read More</a>
             </div>
-            <div class="next-slide-show set-bg" data-setbg="img/slider-bg-2.jpg">
+            <div class="next-slide-show set-bg" data-setbg="{{ asset('storage/'.$item->lokasi_file) }}">
                 <a href="#slide-2" class="ns-btn">Next</a>
             </div>
         </div>
-        <div class="slider-item d-flex align-items-center set-bg" data-setbg="{{asset('img/slider-bg-2.jpg')}}"  data-hash="slide-2">
-            <div class="si-text-box">
-                <span>Photography</span>
-                <h2>Project No. 2</h2>
-                <p>Ut pellentesque auctor lorem, at maximus lacus faucibus nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris auctor nunc non nulla euismod consequat. Pellentesque non mattis nulla. Fusce quis tempor risus, non elemen tum dui. Curabitur et mattis ex, a ultrices.</p>
-                <a href="" class="site-btn">Read More</a>
-            </div>
-            <div class="next-slide-show set-bg" data-setbg="{{asset('img/slider-bg-1.jpg')}}">
-                <a href="#slide-1" class="ns-btn">Next</a>
-            </div>
-        </div>
-    </div>
-    <div id="snh-1"></div>
-</div>
+        @empty
+
+        @endforelse
+
+
+
+
+
 <!-- Page section end-->
 @endsection

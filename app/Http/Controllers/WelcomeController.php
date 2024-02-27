@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
+use App\Models\photo;
 
 class WelcomeController extends Controller
 {
     public function index()
     {
-        return view('beranda');
+        $foto=photo::all();
+        return view('beranda', compact('foto'));
+
     }
 
     public function show()
@@ -17,13 +21,10 @@ class WelcomeController extends Controller
         return view('dashboard');
     }
 
-    public function beranda()
-    {
-        return view('beranda');
-    }
     public function galery()
     {
-        return view('galery');
+        $foto=photo::all();
+        return view('galery', compact('foto'));
     }
     public function home()
     {
@@ -33,14 +34,16 @@ class WelcomeController extends Controller
     {
         return view('singlegalery');
     }
-   
-    public function postingan()
+
+    public function postingan($postingan)
     {
-        return view('postingan');
+        $foto=photo::find($postingan);
+        return view('postingan', compact('foto'));
     }
     public function profil()
     {
-        return view('profil');
+        $foto=photo::where('user_id', Auth::user()->id)->get();
+        return view('profil', compact('foto'));
     }
     public function tambahpostingan()
     {

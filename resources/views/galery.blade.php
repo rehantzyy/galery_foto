@@ -10,42 +10,20 @@
             <li class="filter" data-filter=".animals">Animals</li>
         </ul>
         <div class="portfolio-gallery">
+
+            @forelse ($foto as $item)
             <div class="gallery-item animals">
-                <img src="img/gallery/1.jpg" alt="">
+                <img src="{{ asset('storage/'.$item->lokasi_file) }}" alt="">
                 <div class="hover-links">
-                    <a href="/postingan" class="site-btn sb-light">Next</a>
+                    <a href="/postingan/{{ $item->id }}" class="site-btn sb-light">Next</a>
                 </div>
             </div>
-            <div class="gallery-item nature">
-                <img src="img/gallery/2.jpg" alt="">
-                <div class="hover-links">
-                    <a href="" class="site-btn sb-light">Next</a>
-                </div>
-            </div>
-            <div class="gallery-item love">
-                <img src="img/gallery/3.jpg" alt="">
-                <div class="hover-links">
-                    <a href="" class="site-btn sb-light">Next</a>
-                </div>
-            </div>
-            <div class="gallery-item photo">
-                <img src="img/gallery/5.jpg" alt="">
-                <div class="hover-links">
-                    <a href="" class="site-btn sb-light">Next</a>
-                </div>
-            </div>
-            <div class="gallery-item nature">
-                <img src="img/gallery/6.jpg" alt="">
-                <div class="hover-links">
-                    <a href="" class="site-btn sb-light">Next</a>
-                </div>
-            </div>
-            <div class="gallery-item photo">
-                <img src="img/gallery/4.jpg" alt="">
-                <div class="hover-links">
-                    <a href="" class="site-btn sb-light">Next</a>
-                </div>
-            </div>
+
+            @empty
+
+            @endforelse
+
+
         </div>
 
     </div>

@@ -13,6 +13,7 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
+
     public function register()
     {
         return view('auth.register');
@@ -39,6 +40,7 @@ class AuthController extends Controller
               return redirect ()->back()->with('error','Email atau password salah');
             }
     }
+
     public function register_proses(Request $request){
         $request->validate([
             'name' => 'required',
@@ -64,11 +66,13 @@ class AuthController extends Controller
 
         User::create($data);
 
-        return Redirect()->back()->with('success', 'Registrasi berhasil! Silakan login.');
+        return Redirect()->route('login')->with('success', 'Registrasi berhasil! Silakan login.');
 
     }
-     public function logout(){
+     public function logout(Request $request){
         Auth::logout();
-        return redirect()->route('beranda')->with('success','Sukses logout');
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('beranda')->with('success','Anda telah Logout');
      }
 }

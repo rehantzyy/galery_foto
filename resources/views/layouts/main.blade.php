@@ -36,7 +36,7 @@
 	</div>
 
 	<!-- Top right elements -->
-	<div class="spacial-controls">
+	{{-- <div class="spacial-controls"> --}}
 		<div class="search-switch"><img src="img/search-icon.png" alt=""></div>
 		<div class="nav-switch-warp">
 			<div class="nav-switch">
@@ -63,7 +63,13 @@
                     @auth
                     <li class="{{ request()->is('profil') ? 'active' : '' }}"><a href="{{route('profil')}}">profil</a></li>
                     <li class="{{ request()->is('album') ? 'active' : '' }}"><a href="{{route('album')}}">album</a></li>
-                    <li><a href="{{route('logout')}}">logout</a></li>
+                    <li class="ml-5">
+                        <form action="/logout" method="post">
+                            @csrf
+                            <button type="submit">logout</button>
+
+                        </form>
+                    </li>
                     @else
                     <li><a href="{{route('login')}}">login</a></li>
                     @endauth
